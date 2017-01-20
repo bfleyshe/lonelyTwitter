@@ -9,7 +9,7 @@ public class HappyMood extends Mood {
         super(mood);
     }
 
-    public String getMessage(){
-        return null;
+    public String getMood(){
+        return "Feeling Happy!";
     }
 }
