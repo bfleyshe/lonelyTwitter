@@ -16,9 +16,8 @@ public abstract class Mood implements Tweetable{
         this.mood = mood;
     }
 
-    public Mood(String mood) {
-        this.mood = mood;
-        this.date = date;
+    public Mood() {
+        this.date = "2017.01.01";
     }
 
     public String getMood() {
