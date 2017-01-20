@@ -14,10 +14,10 @@ public abstract class Tweet implements Tweetable{
     private String hiddenString;
 
     //adding a way for each tweet to have a list of moods
-    private String mood;
-    private ArrayList<Object> moodList = new ArrayList<Object>();
 
-    public ArrayList<Object> getMoodList() {
+    private ArrayList<Mood> moodList = new ArrayList<Mood>();
+
+    public ArrayList<Mood> getMoodList() {
         return moodList;
     }
 
@@ -44,22 +44,9 @@ public abstract class Tweet implements Tweetable{
     public String getMessage() {
         return message;
     }
+    
 
-
-    //mood extension
-    public String getMood(){
-        return mood;
-    }
-
-    public void setMood(String mood) {
-        this.mood = mood;
-    }
-
-    public void setMoodList(ArrayList<Object> moodList) {
-        this.moodList = moodList;
-    }
-
-    public ArrayList<Object> getMoodList(ArrayList<Object> moodList) {
+    public ArrayList<Mood> getMoodList(ArrayList<Mood> moodList) {
         return moodList;
     }
 

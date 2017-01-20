@@ -6,18 +6,17 @@ import java.util.Date;
  * Created by bfleyshe on 1/17/17.
  */
 
-public abstract class Mood implements Tweetable{
+public abstract class Mood{
 
     private String mood;
     private Date date;
 
-    public Mood(Date date, String mood) {
+    public Mood(Date date) {
         this.date = date;
-        this.mood = mood;
     }
 
     public Mood() {
-        this.date = "2017.01.01";
+        this.date = new Date(); // uses current date as default
     }
 
     public Date getDate() {
