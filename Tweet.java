@@ -4,34 +4,24 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by bfleyshe on 1/17/17.
+ * Created by omer1 on 1/17/17.
  */
 
-public abstract class Tweet implements Tweetable{
+public abstract class Tweet {
 
     private Date date;
     private String message;
-    private String hiddenString;
+    private ArrayList<Mood> moodList;
 
-    //adding a way for each tweet to have a list of moods
-    private String mood;
-    private ArrayList<Object> moodList = new ArrayList<Object>();
-
-    public ArrayList<Object> getMoodList() {
-        return moodList;
-    }
-
-    public Tweet(Date date, String message) throws TweetTooLongException {
-        this.date = date;
-        this.setMessage(message);
+    public Tweet(Date date, String message) throws TweetTooLongException{
+        setDate(date);
+        setMessage(message);
     }
 
     public Tweet(String message) throws TweetTooLongException{
-        this.setMessage(message);
-        this.date = new Date(); // current time and date
+        setMessage(message);
+        setDate(new Date());
     }
-
-    public abstract Boolean isImportant();
 
     public Date getDate() {
         return date;
@@ -45,38 +35,18 @@ public abstract class Tweet implements Tweetable{
         return message;
     }
 
-
-    //mood extension
-    public String getMood(){
-        return mood;
-    }
-
-    public void setMood(String mood) {
-        this.mood = mood;
-    }
-
-    public void setMoodList(ArrayList<Object> moodList) {
-        this.moodList = moodList;
-    }
-
-    public ArrayList<Object> getMoodList(ArrayList<Object> moodList) {
-        return moodList;
-    }
-
-    public void addMood(ArrayList<Object> moodList, String mood){
-        moodList.add(mood);
-    }
-
-    public void removeMood(ArrayList<Object> moodList, String mood){
-        moodList.remove(mood);
-    }
-
     public void setMessage(String message) throws TweetTooLongException {
         if(message.length() > 144){
             throw new TweetTooLongException();
-        } else{
-            this.message = message;
         }
+        this.message = message;
+    }
+
+    public abstract Boolean isImportant();
+
+    @Override
+    public String toString() {
+        return date.toString() + " | " + message;
     }
 
 }
